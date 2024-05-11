@@ -1,6 +1,8 @@
 package com.ensah.core.bo;
 
 
+import java.util.List;
+
 import jakarta.persistence.*;
 
 
@@ -10,7 +12,9 @@ public class Enseignant extends Personne {
 
 	private String specialite;
 
-
+	 @OneToMany(mappedBy = "typeElement", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	    List<ElementPedagogique> ListeElementsEpd;
+	
 	public String getSpecialite() {
 		return specialite;
 	}
