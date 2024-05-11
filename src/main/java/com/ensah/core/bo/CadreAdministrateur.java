@@ -1,6 +1,9 @@
 package com.ensah.core.bo;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -16,6 +19,18 @@ public String getGrade() {
 public void setGrade(String grade) {
 	this.grade = grade;
 }
+@OneToMany(mappedBy = "cadreAdministrateur", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+List<Surveillance> ListeSurveillance=new ArrayList<>();
+
+public List<Surveillance> getListeSurveillance() {
+	return ListeSurveillance;
+}
+
+public void setListeSurveillance(List<Surveillance> listeSurveillance) {
+	ListeSurveillance = listeSurveillance;
+}
+
+
 
    
    

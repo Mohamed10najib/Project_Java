@@ -14,7 +14,9 @@ public class ElementPedagogique {
 private Long IdEpd;
 	private String nomEpd;
 @ManyToOne 
-private Enseignant enseignant;
+private Enseignant enseignantEnsiger;
+@ManyToOne 
+private Enseignant enseignantcoordonne;
 @ManyToOne 
 private Niveau niveau;
 @ManyToOne
@@ -31,12 +33,8 @@ public String getNomEpd() {
 public void setNomEpd(String nomEpd) {
 	this.nomEpd = nomEpd;
 }
-public Enseignant getEnseignant() {
-	return enseignant;
-}
-public void setEnseignant(Enseignant enseignant) {
-	this.enseignant = enseignant;
-}
+
+
 public Niveau getNiveau() {
 	return niveau;
 }
@@ -49,14 +47,29 @@ public TypeElement getTypeElement() {
 public void setTypeElement(TypeElement typeElement) {
 	this.typeElement = typeElement;
 }
-public ElementPedagogique(Long idEpd, String nomEpd, Enseignant enseignant, Niveau niveau, TypeElement typeElement) {
+public Enseignant getEnseignantEnsiger() {
+	return enseignantEnsiger;
+}
+public void setEnseignantEnsiger(Enseignant enseignantEnsiger) {
+	this.enseignantEnsiger = enseignantEnsiger;
+}
+public Enseignant getEnseignantcoordonne() {
+	return enseignantcoordonne;
+}
+public void setEnseignantcoordonne(Enseignant enseignantcoordonne) {
+	this.enseignantcoordonne = enseignantcoordonne;
+}
+public ElementPedagogique(Long idEpd, String nomEpd, Enseignant enseignantEnsiger, Enseignant enseignantcoordonne,
+		Niveau niveau, TypeElement typeElement) {
 	super();
 	IdEpd = idEpd;
 	this.nomEpd = nomEpd;
-	this.enseignant = enseignant;
+	this.enseignantEnsiger = enseignantEnsiger;
+	this.enseignantcoordonne = enseignantcoordonne;
 	this.niveau = niveau;
 	this.typeElement = typeElement;
 }
+
 
 
 
